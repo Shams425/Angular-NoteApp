@@ -1,0 +1,52 @@
+<div class="container mx-auto mt-5 p-0">
+  <form [formGroup]="NoteDetails" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" placeholder="Note Title" />
+      </mat-form-field>
+    </div>
+    <div class="mb-3">
+      <mat-form-field>
+        <mat-label>Body</mat-label>
+        <textarea
+          matInput
+          formControlName="body"
+          rows="5"
+          column="40"
+          placeholder="Enter The Note Details"
+        >
+        </textarea>
+      </mat-form-field>
+    </div>
+    <div class="buttons d-flex justify-content-end mb-5">
+      <button
+        mat-flat-button
+        color="warn"
+        class="mx-3"
+        type="button"
+        (click)="cancel()"
+      >
+        Cancel
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        *ngIf="new"
+        type="submit"
+        [disabled]="!NoteDetails.valid"
+      >
+        Save
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        *ngIf="!new"
+        type="submit"
+        [disabled]="!NoteDetails.valid"
+      >
+        Update
+      </button>
+    </div>
+  </form>
+</div>

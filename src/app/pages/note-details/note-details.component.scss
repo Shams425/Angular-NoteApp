@@ -1,0 +1,16 @@
+.mat-form-field {
+  width: 100% !important;
+  background-color: transparent;
+  input,
+  textarea {
+    margin: 25px 0;
+    padding: 10px;
+    border: 1px solid rgba(65, 65, 65, 0.281);
+  }
+}
+
+input,
+textarea {
+  &.ng-invalid {
+  }
+}

@@ -1,0 +1,18 @@
+<div #noteContainer class="container-fluid m-0 p-0">
+  <div class="cardContinent">
+    <a [routerLink]="link">
+      <div class="card mb-5">
+        <div class="card-body">
+          <h4 class="card-title">{{ title }}</h4>
+          <div #bodyText class="card-text">
+            <p>{{ body }}</p>
+            <div #gradientText class="fade-out"></div>
+          </div>
+        </div>
+      </div>
+    </a>
+    <div class="deleteButton" title="Delete Note" (click)="DeleteNote()">
+      <p>&#10060;</p>
+    </div>
+  </div>
+</div>

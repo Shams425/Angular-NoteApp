@@ -1,0 +1,32 @@
+<div class="container mx-auto p-5">
+  <div class="searchBar">
+    <div class="field">
+      <p class="control has-icons-left">
+        <input
+          #filterInput
+          class="input"
+          type="text"
+          (keyup)="filterNotes($event.target.value)"
+          placeholder="Filter"
+        />
+        <span class="icon is-small is-left">
+          <i class="fas fa-search"></i>
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <div class="note-lists" title="Click To Edit" [@listAnimate]>
+    <app-note-cards
+      *ngFor="let note of filteredNotes"
+      [link]="generatedNoteURL(note)"
+      [@itemAnimate]
+      [title]="note.title"
+      (delete)="deleteNote(note)"
+      [body]="note.body"
+    >
+    </app-note-cards>
+  </div>
+
+  <button class="btn btn-primary text-light" routerLink="new">Add</button>
+</div>

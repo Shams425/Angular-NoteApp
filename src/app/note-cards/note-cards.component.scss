@@ -1,0 +1,102 @@
+@import "../../custom.scss";
+
+.cardContinent {
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 4px rgba(black, 0.068);
+
+    .deleteButton {
+      opacity: 1;
+      transition: all 0.3s ease-out;
+      transform: scale(1);
+    }
+  }
+  .card {
+    border-radius: 10px;
+    box-shadow: 0px 2px 14px -2px rgb(0 0 0 / 30%);
+    padding: 20px;
+    transition: box-shadow 0.3s ease-out;
+
+    // the & means the class we are in now
+
+    .card-text {
+      position: relative;
+      max-height: 80px;
+      overflow: hidden;
+      color: #555;
+
+      .fade-out {
+        position: absolute;
+        bottom: 0;
+        height: 50%;
+        width: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(white, 0) 0%,
+          rgba(white, 0.8) 50%,
+          white 100%
+        );
+        pointer-events: none;
+      }
+    }
+
+    .card-title {
+      font-size: 22px;
+      font-weight: bold;
+      color: $purple;
+    }
+  }
+  .deleteButton {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    transition: all 0.3s ease-in;
+    padding-top: 7px;
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    transition-delay: 0.35s;
+    opacity: 0;
+    transform: scale(0.8);
+
+    &:hover {
+      cursor: pointer;
+      background-color: darken($light-red, 3%);
+    }
+
+    &:active {
+      background-color: darken($light-red, 10%);
+    }
+  }
+}
+
+.cardContinent.animation {
+  animation: cardAnimation 1s ease-out forwards;
+}
+
+@keyframes cardAnimation {
+  0% {
+    transform: scale(0.95);
+  }
+
+  25% {
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.75;
+  }
+
+  75% {
+    transform: scale(0.8);
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
